@@ -1,0 +1,49 @@
+Algorithm ProcessDNSSimulationData (PhD Research):
+
+Begin
+
+    // P1: Collecting well-structured data from DNS simulations
+    Function CollectDataFromDNSSimulations(DNS_simulation_files): structured_data
+        For each simulation_file in DNS_simulation_files
+            simulation_data = read_simulation_data(simulation_file)  // pressure, density, temperature etc
+            structured_data_point = structure_simulation_data(simulation_data)
+            Append structured_data_point to structured_data
+        EndFor
+        Return structured_data
+    EndFunction
+
+    // P2: Postprocess structured Data to obtain flow variables
+    Function PostprocessStructuredData(structured_data): flow_variables
+        For each data_set in structured_data
+            flow_variable = compute_flow_variables(data_set)
+            Append flow_variable to flow_variables
+        EndFor
+        Return flow_variables
+    EndFunction
+
+    // P3: Visualize and save meaningful results
+    Function VisualizeAndSaveResults(flow_variables)
+        // a. Visualizations
+        Function CreateVisualizations(data)
+            // Use a visualization library or framework to create visualizations
+            Create and display visualizations of data
+        EndFunction
+        
+        // b. Save Visualizations
+        Function SaveVisualizations(fileLocation: string, visualization)
+            Open file at fileLocation for writing
+            Save the visualization to the file
+            Close the file
+        EndFunction
+        
+        visualizations = CreateVisualizations(flow_variables)
+        SaveVisualizations("path_to_save_visualizations", visualizations)
+    EndFunction
+
+    // Main Process
+    DNS_simulation_files = get_DNS_simulation_files("path_to_DNS_simulation_files")
+    structured_data = CollectDataFromDNSSimulations(DNS_simulation_files)
+    flow_variables = PostprocessStructuredData(structured_data)
+    VisualizeAndSaveResults(flow_variables)
+
+End
