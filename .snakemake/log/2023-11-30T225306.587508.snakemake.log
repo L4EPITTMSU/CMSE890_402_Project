@@ -1,0 +1,53 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job             count
+------------  -------
+all                 1
+plot_contour        1
+plot_tke            1
+total               3
+
+Select jobs to execute...
+
+[Thu Nov 30 22:53:07 2023]
+rule plot_tke:
+    input: data/tke1.dat, data/tke2.dat
+    output: figures/tke_plot.png
+    jobid: 1
+    reason: Missing output files: figures/tke_plot.png
+    resources: tmpdir=/tmp
+
+python scripts/plot_tke.py data/tke1.dat data/tke2.dat figures/tke_plot.png
+[Thu Nov 30 22:53:08 2023]
+Finished job 1.
+1 of 3 steps (33%) done
+Select jobs to execute...
+
+[Thu Nov 30 22:53:08 2023]
+rule plot_contour:
+    input: data/temp150.dat1, data/temp175.dat1
+    output: figures/non_reactive.png, figures/reactive.png
+    jobid: 2
+    reason: Missing output files: figures/non_reactive.png, figures/reactive.png
+    resources: tmpdir=/tmp
+
+python scripts/contour.py data/temp150.dat1 data/temp175.dat1 figures/non_reactive.png figures/reactive.png
+[Thu Nov 30 22:53:30 2023]
+Finished job 2.
+2 of 3 steps (67%) done
+Select jobs to execute...
+
+[Thu Nov 30 22:53:30 2023]
+localrule all:
+    input: figures/tke_plot.png, figures/non_reactive.png, figures/reactive.png
+    jobid: 0
+    reason: Input files updated by another job: figures/reactive.png, figures/non_reactive.png, figures/tke_plot.png
+    resources: tmpdir=/tmp
+
+[Thu Nov 30 22:53:30 2023]
+Finished job 0.
+3 of 3 steps (100%) done
+Complete log: .snakemake/log/2023-11-30T225306.587508.snakemake.log

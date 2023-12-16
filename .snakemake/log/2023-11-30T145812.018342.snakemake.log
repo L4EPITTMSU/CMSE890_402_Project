@@ -1,0 +1,35 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job         count
+--------  -------
+all             1
+plot_tke        1
+total           2
+
+Select jobs to execute...
+
+[Thu Nov 30 14:58:12 2023]
+rule plot_tke:
+    input: data/tke.dat
+    output: output_plot.png
+    jobid: 1
+    reason: Missing output files: output_plot.png
+    resources: tmpdir=/tmp
+
+[Thu Nov 30 14:58:12 2023]
+Error in rule plot_tke:
+    jobid: 1
+    input: data/tke.dat
+    output: output_plot.png
+
+RuleException:
+NameError in file /mnt/ufs18/home-187/alshyban/Project_F23/Snakefile, line 11:
+The name 'input' is unknown in this context. Please make sure that you defined that variable. Also note that braces not used for variable access have to be escaped by repeating them, i.e. {{print $1}}
+  File "/mnt/ufs18/home-187/alshyban/Project_F23/Snakefile", line 11, in __rule_plot_tke
+  File "/mnt/home/alshyban/mambaforge/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2023-11-30T145812.018342.snakemake.log

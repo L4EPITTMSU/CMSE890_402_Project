@@ -1,0 +1,7 @@
+Instructions for Use:
+
+Replace 'your_script_name' with the actual names of your Python script files.
+
+Ensure you have the test data files (data1.txt, contour_data1.csv, etc.) in the same directory as your scripts or update the file paths in the test cases accordingly.
+
+Run these test scripts using Python. They should automatically execute the tests defined in them.

@@ -1,0 +1,49 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job             count
+------------  -------
+all                 1
+plot_contour        1
+plot_tke            1
+total               3
+
+Select jobs to execute...
+
+[Thu Nov 30 20:04:55 2023]
+rule plot_tke:
+    input: data/tke1.dat, data/tke2.dat
+    output: data/tke_plot.png
+    jobid: 1
+    reason: Missing output files: data/tke_plot.png
+    resources: tmpdir=/tmp
+
+python scripts/plot_tke.py data/tke1.dat data/tke2.dat data/tke_plot.png
+[Thu Nov 30 20:04:56 2023]
+Finished job 1.
+1 of 3 steps (33%) done
+Select jobs to execute...
+
+[Thu Nov 30 20:04:56 2023]
+rule plot_contour:
+    input: data/temp150.dat1, data/temp175.dat1
+    output: data/non_reactive.png, data/reactive.png
+    jobid: 2
+    reason: Missing output files: data/non_reactive.png, data/reactive.png
+    resources: tmpdir=/tmp
+
+python scripts/plot_contour.py data/temp150.dat1 data/temp175.dat1 data/non_reactive.png data/reactive.png
+[Thu Nov 30 20:04:57 2023]
+Error in rule plot_contour:
+    jobid: 2
+    input: data/temp150.dat1, data/temp175.dat1
+    output: data/non_reactive.png, data/reactive.png
+    shell:
+        python scripts/plot_contour.py data/temp150.dat1 data/temp175.dat1 data/non_reactive.png data/reactive.png
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2023-11-30T200455.204763.snakemake.log

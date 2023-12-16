@@ -1,0 +1,5 @@
+Building DAG of jobs...
+MissingInputException in rule all in file /mnt/ufs18/home-187/alshyban/Project_F23/Snakefile, line 2:
+Missing input files for rule all:
+    affected files:
+        output_plot.png

@@ -1,0 +1,22 @@
+site_name: 'REPRODCUIPLE WORKFLOW PROJECT'
+plugins:
+  - search
+  - mkdocstrings:
+      default_handler: python
+nav:
+  - 'Home': 'index.md'
+  - 'workflow documentation': 'work_flow.md'
+  - Functions:
+    - 'Load of data': 'load_data.md'
+    - 'Plot of data': 'plot_data.md'
+    - 'Plot of contour': 'plot_contour.md'
+    - 'Plot save': 'plot_save.md'
+    - 'main': 'main.md'
+  - Results:
+    - 'Plots': 'image.md'
+theme:
+  name: mkdocs  
+  extra_css:
+    - 'css/custom.css'
+
+
