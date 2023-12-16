@@ -1,0 +1,32 @@
+
+<div class="workflow">
+    <div class="rule" id="rule-all">
+        <p>Rule: All</p>
+        <div class="inputs">
+            <span>figures/tke_plot.png</span>
+            <span>figures/non_reactive.png</span>
+            <span>figures/reactive.png</span>
+        </div>
+    </div>
+    <div class="rule" id="rule-plot-tke">
+        <p>Rule: plot_tke</p>
+        <div class="inputs">
+            <span>data/tke1.dat</span>
+            <span>data/tke2.dat</span>
+        </div>
+        <div class="output">
+            <span>figures/tke_plot.png</span>
+        </div>
+    </div>
+    <div class="rule" id="rule-plot-contour">
+        <p>Rule: plot_contour</p>
+        <div class="inputs">
+            <span>data/temp150.dat1</span>
+            <span>data/temp175.dat1</span>
+        </div>
+        <div class="output">
+            <span>figures/non_reactive.png</span>
+            <span>figures/reactive.png</span>
+        </div>
+    </div>
+</div>
